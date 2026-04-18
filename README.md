@@ -28,3 +28,6 @@ Is project ko clean aur scalable banaya gaya hai:
 1. Is repository ko clone karein:
    ```bash
    git clone [https://github.com/your-username/ecommers-website.git](https://github.com/your-username/ecommers-website.git)
+
+
+   ![Project Preview](image/project-showcase.png.jpg)
