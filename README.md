@@ -1,5 +1,9 @@
 # 🛒 Professional E-Commerce Frontend Web Application
 
+<p align="center">
+  <img src="image/project-showcase.png.jpg" alt="Project Showcase" width="800">
+</p>
+
 Ek modern, fully responsive aur feature-rich e-commerce platform jo user experience (UX) aur clean design ko dhyaan mein rakh kar banaya gaya hai. Is project mein shopping cart logic aur user authentication interfaces ko detail ke sath implement kiya gaya hai.
 
 ## 🌟 Key Features
@@ -31,3 +35,7 @@ Is project ko clean aur scalable banaya gaya hai:
 
 
    ![Project Preview](image/project-showcase.png.jpg)
+
+   # 🛒 E-Commerce Website Project
+
+![Muhammad Abdullah Ali's Project Showcase](image/project-showcase.png.jpg)
