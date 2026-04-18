@@ -1,0 +1,572 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* =========================================
+   1. GLOBAL RESET & SHAKE FIX
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px; /* Header ke peechay chupne se rokay ga */
+}
+
+/* 🛠️ Yeh dayen-bayen hilne (Horizontal Shake) se rokay ga */
+html, body {
+  width: 100%;
+  overflow-x: hidden !important; 
+  margin: 0;
+  padding: 0;
+}
+
+h1 { font-size: 50px; line-height: 64px; color: #222; }
+h2 { font-size: 46px; line-height: 54px; color: #222; }
+h4 { font-size: 20px; color: #222; }
+h6 { font-weight: 700; font-size: 12px; }
+p { font-size: 16px; color: #465b52; margin: 15px 0 20px 0; }
+
+.section-p1 { padding: 40px 80px; }
+.section-m1 { margin: 40px 0; }
+
+/* =========================================
+   2. BUTTONS
+   ========================================= */
+button.normal {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+button.normal:hover { background-color: #088178; color: #fff; transform: translateY(-3px); }
+
+button.white {
+  font-size: 13px; font-weight: 600; padding: 11px 18px; color: #fff;
+  background-color: transparent; cursor: pointer; border: 1px solid #fff;
+  outline: none; transition: all 0.3s ease; align-self: flex-start; width: auto;
+}
+button.white:hover { background-color: #fff; color: #088178; }
+
+/* =========================================
+   3. HEADER & VIP DROPDOWN MENU
+   ========================================= */
+/* =========================================
+   3. HEADER (FULL WIDTH BAR, CENTERED CONTENT)
+   ========================================= */
+/* 1. Bahar wali patti jo 100% phaili hogi */
+
+
+/* 1. Bahar wali patti - Isay hamesha 100% phailna chahiye */
+#header {
+    display: block !important; /* Block taake container sahi se kaam kare */
+    width: 100% !important;
+    max-width: 100% !important; 
+    background: #e3e6f3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 0 !important; /* Patti ki padding zero rakhein */
+    margin: 0 !important;
+}
+
+/* 2. Andar wala dabba - Jo aapke Logo aur Menu ko center rakhega */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px; /* Asli gap yahan se aayega */
+    width: 100%;
+    max-width: 1500px; /* Is se zyada wide nahi hoga, center mein rahega */
+    margin: 0 auto; /* Yeh magic line hai jo center karti hai */
+}
+
+/* Mobile setting */
+@media (max-width: 799px) {
+    .header-container {
+        padding: 20px 30px;
+    }
+}/* 1. Bahar wali patti - Isay hamesha 100% phailna chahiye */
+#header {
+    display: block !important; /* Block taake container sahi se kaam kare */
+    width: 100% !important;
+    max-width: 100% !important; 
+    background: #e3e6f3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 0 !important; /* Patti ki padding zero rakhein */
+    margin: 0 !important;
+}
+
+/* 2. Andar wala dabba - Jo aapke Logo aur Menu ko center rakhega */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px; /* Asli gap yahan se aayega */
+    width: 100%;
+    max-width: 1500px; /* Is se zyada wide nahi hoga, center mein rahega */
+    margin: 0 auto; /* Yeh magic line hai jo center karti hai */
+}
+
+/* Mobile setting */
+@media (max-width: 799px) {
+    .header-container {
+        padding: 20px 30px;
+    }
+}
+
+
+#header.sticky { background: rgba(255, 255, 255, 0.95); padding: 10px 80px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+#navbar { display: flex; align-items: center; justify-content: center; }
+#navbar li { list-style: none; padding: 0 20px; position: relative; }
+#navbar li a { text-decoration: none; font-size: 16px; font-weight: 600; color: #1a1a1a; transition: 0.3s ease; }
+#navbar li a:hover, #navbar li a.active { color: #088178; }
+#navbar li a.active::after, #navbar li a:hover::after {
+  content: ""; width: 30%; height: 2px; background: #088178; position: absolute; bottom: -4px; left: 20px;
+}
+
+#mobile { display: none; align-items: center; }
+#close { display: none; }
+
+.logo { transition: all 0.3s ease; transform-origin: left center; cursor: pointer; }
+#header.sticky .logo { transform: scale(0.85) translateY(2px); opacity: 0.9; }
+
+/* Dropdown CSS */
+.dropdown { position: relative; }
+.dropdown-menu {
+    position: absolute; top: 100%; left: 0; background: #ffffff;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); border-radius: 8px; padding: 10px 0;
+    min-width: 220px; opacity: 0; visibility: hidden; transform: translateY(20px);
+    transition: all 0.3s ease; z-index: 1000;
+}
+.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown-menu li { padding: 0 !important; margin: 0 !important; list-style: none; }
+.dropdown-menu li a { display: block; padding: 12px 25px !important; font-size: 14px !important; font-weight: 500 !important; color: #333 !important; transition: all 0.3s ease !important; }
+.dropdown-menu li a:hover { background: #f4f6f8; color: #088178 !important; padding-left: 32px !important; }
+.dropdown-menu li a::after { display: none !important; }
+
+/* =========================================
+   4. HERO SECTION 
+   ========================================= */
+@keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+
+/* 🛠️ Hero Fix: Sirf ek dafa likha gaya hai, aur fit setting hai */
+#hero {
+  background-image: url("images/hero4.png");
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    
+    /* 🛠️ Image ko navbar se neechay dhakelnay ke liye */
+    background-position: center bottom; 
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    /* 🛠️ Text ko neechay lane ke liye padding badha di */
+    padding: 100px 80px 0 80px; 
+    
+    /* 🛠️ Agar image patti ke andar ja rahi hai toh yeh line magic karegi */
+    
+}
+
+
+#hero h4, #hero h2, #hero h1, #hero p, #hero button { opacity: 0; animation: fadeUp 0.8s ease-in-out forwards; }
+#hero h4 { padding-bottom: 15px; animation-delay: 0.1s; }
+#hero h2 { animation-delay: 0.3s; }
+#hero h1 { color: #088178; animation-delay: 0.5s; }
+#hero p { animation-delay: 0.7s; }
+#hero button {
+  background-image: url(images/button.png); background-color: transparent; color: #088178;
+  border: 0; padding: 14px 80px 14px 65px; background-repeat: no-repeat; cursor: pointer;
+  font-weight: 700; font-size: 15px; animation-delay: 0.9s; transition: transform 0.3s ease;
+}
+#hero button:hover { transform: scale(1.05); }
+
+/* =========================================
+   5. FEATURES SECTION
+   ========================================= */
+#feature { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+#feature .fa-box { width: 180px; text-align: center; padding: 25px 15px; box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03); border: 1px solid #cce7d0; border-radius: 4px; margin: 15px 0; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+#feature .fa-box:hover { box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.2); transform: translateY(-5px); }
+#feature .fa-box img { width: 100%; margin-bottom: 10px; }
+#feature .fa-box h6 { display: inline-block; padding: 9px 8px 6px 8px; line-height: 1; border-radius: 4px; color: #088178; background-color: #fddde4; }
+#feature .fa-box:nth-child(2) h6 { background-color: #cdebbc; }
+#feature .fa-box:nth-child(3) h6 { background-color: #d1e8f2; }
+#feature .fa-box:nth-child(4) h6 { background-color: #cdd4f8; }
+#feature .fa-box:nth-child(5) h6 { background-color: #f6dbf6; }
+#feature .fa-box:nth-child(6) h6 { background-color: #fff2e5; }
+
+/* =========================================
+   6. PRODUCTS SECTION
+   ========================================= */
+#product1, #product2 { text-align: center; }
+#product1 .pro-container, #product2 .pro-container { display: flex; justify-content: space-between; padding-top: 20px; flex-wrap: wrap; }
+.pro { width: 23%; min-width: 250px; padding: 10px 12px; border: 1px solid #cce7d0; border-radius: 25px; cursor: pointer; box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); margin: 15px 0; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
+.pro:hover { box-shadow: 0 15px 25px rgba(0,0,0,0.1); transform: translateY(-10px); }
+.pro img { width: 100%; border-radius: 20px; transition: transform 0.5s ease; }
+.pro:hover img { filter: brightness(95%); transform: scale(1.05) rotate(2deg); }
+.pro .des { text-align: start; padding: 10px 0; }
+.pro .des span { color: #606063; font-size: 12px; }
+.pro .des h5 { padding-top: 7px; color: #1a1a1a; font-size: 14px; }
+.pro .des i { font-size: 12px; color: rgb(243, 181, 25); }
+.pro .des h4 { padding-top: 7px; font-size: 15px; font-weight: 700; color: #088178; }
+.pro .cart { width: 40px; height: 40px; line-height: 40px; border-radius: 50px; background-color: #e8f6ea; font-weight: 600; color: #088178; border: 1px solid #cce7d0; position: absolute; bottom: 20px; right: 10px; text-align: center; transition: all 0.3s ease; }
+.pro .cart:hover { background-color: #088178; color: #fff; }
+
+/* =========================================
+   7. BANNERS & NEWSLETTER
+   ========================================= */
+#banner { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-image: url(images/b2.jpg); width: 100%; height: 40vh; background-size: cover; background-position: center; }
+#banner h4 { color: #fff; font-size: 14px; }
+#banner h2 { color: #fff; font-size: 30px; padding: 10px 0; }
+#banner h2 span { color: #ef3636; }
+
+#sm-banner { display: flex; justify-content: space-between; flex-wrap: wrap; }
+#sm-banner .banner-box { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; background-image: url(images/b17.jpg); min-width: 580px; width: 49%; height: 50vh; background-size: cover; background-position: center; padding: 30px; transition: background-size 0.5s ease-in; }
+#sm-banner .banner-box:hover { background-size: 110%; }
+#sm-banner .banner-box2 { background-image: url(images/b10.jpg); }
+#sm-banner h4 { color: #fff; font-size: 20px; font-weight: 300; }
+#sm-banner h2 { color: #fff; font-size: 28px; font-weight: 800; }
+#sm-banner span { color: #fff; font-size: 14px; font-weight: 500; padding-bottom: 15px; }
+
+#banner3 { display: flex; justify-content: space-between; flex-wrap: wrap; padding: 0 80px; }
+#banner3 .banner-box { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; background-image: url(images/b7.jpg); min-width: 30%; height: 30vh; background-size: cover; background-position: center; padding: 20px; margin-bottom: 20px; transition: background-size 0.4s ease; }
+#banner3 .banner-box:hover { background-size: 105%; }
+#banner3 .banner-box2 { background-image: url(images/b4.jpg); }
+#banner3 .banner-box3 { background-image: url(images/b18.jpg); }
+#banner3 h2 { color: #fff; font-weight: 900; font-size: 22px; }
+#banner3 h3 { color: #ef3636; font-weight: 800; font-size: 15px; }
+#banner3 .banner-box3 h3 { color: #fff; }
+
+#newsletter { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; background-image: url(images/banner.png); background-repeat: no-repeat; background-position: 20% 30%; background-color: #041e42; }
+#newsletter h4 { font-size: 22px; font-weight: 700; color: #fff; }
+#newsletter p { font-size: 15px; font-weight: 600; color: #088178; }
+#newsletter p span { color: #ffbd27; }
+#newsletter .form { display: flex; width: 40%; }
+#newsletter input { height: 3.125rem; padding: 0 1.25em; font-size: 14px; width: 100%; border: 1px solid transparent; border-radius: 10px 0 0 10px; outline: none; }
+#newsletter button { background-color: #088178; color: #fff; white-space: nowrap; border-radius: 0 10px 10px 0; }
+#newsletter button:hover { animation: pulse 0.5s ease-in-out; }
+
+/* =========================================
+   8. FOOTER & SOCIAL ICONS (VIP)
+   ========================================= */
+footer.section-p1 { display: flex; flex-wrap: wrap; justify-content: space-between; background: linear-gradient(to right, #0b0f19, #111827); padding: 60px 80px; gap: 30px; }
+footer .col { display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 30px; flex: 1 1 200px; }
+
+/* 🛠️ Footer Images Fix (White Box Issue Solved) */
+footer .col img.logo { margin-bottom: 20px; filter: brightness(0) invert(1) !important; }
+footer .col img:not(.logo) { filter: none !important; }
+
+footer h4 { font-size: 16px; color: #ffffff; margin-bottom: 20px; font-weight: 700; }
+footer p { font-size: 14px; color: #ffffff; margin: 0 0 8px 0; opacity: 0.9; }
+footer a { font-size: 14px; text-decoration: none; color: #ffffff; margin-bottom: 10px; transition: 0.3s; opacity: 0.85; }
+footer a:hover { color: #22c55e; padding-left: 6px; }
+
+footer .follow .icon i { color: #ffffff; margin-right: 12px; font-size: 18px; cursor: pointer; transition: 0.3s; }
+footer .install .row { display: flex; gap: 10px; margin-bottom: 15px; }
+footer .install .row img { border: 1px solid #22c55e; border-radius: 6px; width: 120px; }
+footer .copyright { width: 100%; text-align: center; color: #cce7d0; margin-top: 20px; }
+
+/* VIP Social & WhatsApp */
+footer .follow .icon a:hover i.fa-facebook-f { color: #1877F2; transform: translateY(-3px); }
+footer .follow .icon a:hover i.fa-instagram { color: #E4405F; transform: translateY(-3px); }
+footer .follow .icon a:hover i.fa-twitter { color: #1DA1F2; transform: translateY(-3px); }
+footer .follow .icon a:hover i.fa-youtube { color: #FF0000; transform: translateY(-3px); }
+
+footer .follow .icon a.whatsapp-btn { margin-left: 15px; padding-left: 20px; border-left: 2px solid rgba(255, 255, 255, 0.2); display: inline-block; }
+footer .follow .icon a.whatsapp-btn i { font-size: 22px; color: #25D366; transition: all 0.3s ease; }
+footer .follow .icon a.whatsapp-btn i:hover { transform: scale(1.2) translateY(-3px); text-shadow: 0 5px 15px rgba(37, 211, 102, 0.5); }
+
+/* =========================================
+   9. INNER PAGES (SHOP, BLOG, CART, ETC)
+   ========================================= */
+#page-header { background-image: url(images/b1.jpg); width: 100%; height: 40vh; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 14px; }
+#page-header h2, #page-header p { color: #fff; margin: 0; }
+#pagination { text-align: center; }
+#pagination a { text-decoration: none; background-color: #088178; padding: 15px 20px; border-radius: 4px; color: #fff; font-weight: 600; margin: 0 5px; transition: 0.3s ease; }
+#pagination a:hover { background-color: #066b63; }
+
+#prodetails { display: flex; margin-top: 20px; }
+#prodetails .single-pro-image { width: 40%; margin-right: 50px; }
+.small-img-group { display: flex; justify-content: space-between; margin-top: 5px; }
+.small-img-col { flex-basis: 24%; cursor: pointer; }
+#prodetails .single-pro-details { width: 50%; padding-top: 30px; }
+#prodetails .single-pro-details h4 { padding: 40px 0 20px 0; }
+#prodetails .single-pro-details h2 { font-size: 26px; }
+#prodetails .single-pro-details select, #prodetails .single-pro-details input { padding: 10px 15px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #e1e1e1; outline: none; }
+#prodetails .single-pro-details input { width: 60px; height: 47px; font-size: 16px; margin-right: 10px; }
+#prodetails .single-pro-details button { background-color: #088178; color: #fff; }
+
+#page-header.blog-header { background-image: url(images/b19.jpg); }
+#blog { padding: 150px 150px 0 150px; }
+.blog-box { display: flex; align-items: center; width: 100%; position: relative; padding-bottom: 90px; }
+.blog-img { width: 50%; margin-right: 40px; }
+.blog-img img { width: 100%; height: 300px; object-fit: cover; border-radius: 4px; }
+.blog-details { width: 50%; }
+.blog-details a { text-decoration: none; font-size: 13px; color: #000; font-weight: 700; position: relative; transition: 0.3s; }
+.blog-details a::after { content: ""; width: 50px; height: 1px; background-color: #000; position: absolute; top: 9px; right: -60px; transition: 0.3s; }
+.blog-details a:hover, .blog-details a:hover::after { color: #088178; background-color: #088178; }
+#blog .blog-box h1 { position: absolute; top: -40px; left: 0; font-size: 70px; font-weight: 700; color: #c9cbce; z-index: -9; }
+
+#about-head { display: flex; align-items: center; }
+#about-head img { width: 50%; height: auto; }
+#about-head div { width: 50%; padding-left: 40px; }
+#about-head div p { line-height: 1.6; }
+#about-app { text-align: center; }
+#about-app h1 { font-weight: 700; margin-bottom: 20px; }
+#about-app h1 a { color: #088178; }
+#about-app .video { width: 70%; margin: 0 auto; }
+#about-app .video video { width: 100%; height: 100%; border-radius: 20px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+
+#contact-details { display: flex; align-items: center; justify-content: space-between; }
+#contact-details .details { width: 40%; }
+#contact-details .details h2, #form-details form h2 { font-size: 26px; line-height: 35px; padding: 20px 0; }
+#contact-details .details li { list-style: none; display: flex; padding: 10px 0; }
+#contact-details .details li i { font-size: 14px; padding-right: 22px; color: #088178; }
+#contact-details .map { width: 55%; height: 400px; }
+#contact-details .map iframe { width: 100%; height: 100%; border-radius: 4px; }
+
+#cart { overflow-x: auto; }
+#cart table { width: 100%; border-collapse: collapse; table-layout: fixed; white-space: nowrap; }
+#cart table img { width: 70px; border-radius: 4px; }
+#cart table td:nth-child(1) { width: 100px; text-align: center; }
+#cart table td:nth-child(2) { width: 150px; text-align: center; }
+#cart table td:nth-child(3) { width: 250px; text-align: center; }
+#cart table td:nth-child(4), #cart table td:nth-child(5), #cart table td:nth-child(6) { width: 150px; text-align: center; }
+#cart table td:nth-child(5) input { width: 70px; padding: 10px 5px 10px 15px; border-radius: 4px; border: 1px solid #e1e1e1; outline: none; }
+#cart table thead { border: 1px solid #e2e9e1; border-left: none; border-right: none; }
+#cart table thead td { font-weight: 700; text-transform: uppercase; font-size: 13px; padding: 18px 0; }
+#cart table tbody tr td { padding-top: 15px; font-size: 14px; }
+#cart table tbody td a { color: #000; font-size: 20px; transition: 0.3s; }
+#cart table tbody td a:hover { color: #ef3636; }
+
+#cart-add { display: flex; justify-content: space-between; flex-wrap: wrap; }
+#coupon, #subtotal { width: 50%; margin-bottom: 30px; }
+#coupon input { padding: 12px 20px; outline: none; width: 60%; margin-right: 10px; border: 1px solid #e1e1e1; border-radius: 4px; }
+#coupon button, #subtotal button { background-color: #088178; color: #fff; padding: 12px 20px; }
+#subtotal { border: 1px solid #e1e1e1; padding: 30px; border-radius: 4px; }
+#subtotal table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+#subtotal table td { width: 50%; border: 1px solid #e1e1e1; padding: 10px; font-size: 14px; }
+
+#checkout-page { display: flex; justify-content: space-between; margin-top: 50px; }
+.billing-details { width: 60%; }
+.order-summary { width: 35%; border: 1px solid #e1e1e1; padding: 30px; border-radius: 4px; height: fit-content; }
+#checkout-form input { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #e1e1e1; border-radius: 4px; outline: none; }
+.order-summary table { width: 100%; margin-bottom: 20px; border-collapse: collapse; }
+.order-summary table td { padding: 15px 0; border-bottom: 1px solid #e1e1e1; }
+.order-summary button { width: 100%; background-color: #088178; color: #fff; font-size: 16px; padding: 15px; }
+
+/* =========================================
+   10. PREMIUM LOGIN & SIGNUP FORMS (Fixed Centering)
+   ========================================= */
+#form-details:has(#login-form), 
+#form-details:has(#signup-form) {
+    display: flex; justify-content: center; align-items: center; border: none; padding: 60px 20px; width: 100%; margin: 0 auto;
+}
+#login-form, #signup-form {
+    width: 90%; /* 👈 Width badha di */
+    max-width: 500px; /* Desktop par max size */
+    margin: 100px auto; /* 👈 100px margin upar neechay se taake screen ke darmiyan nazar aaye */
+    background: #ffffff;
+    padding: 60px 40px; /* Andar ki jagah badha di */
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Form container ko full height dena taake box center rahay */
+#form-details {
+    min-height: 80vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#login-form:hover, #signup-form:hover { transform: translateY(-5px); }
+#login-form h2, #signup-form h2 { font-size: 32px; color: #088178; margin-bottom: 5px; font-weight: 800; }
+#login-form span, #signup-form span { font-size: 14px; color: #888; margin-bottom: 25px; display: block; letter-spacing: 1px; }
+#login-form input, #signup-form input { width: 100%; padding: 15px 20px; margin-bottom: 20px; border: 1px solid #e1e1e1; border-radius: 6px; font-size: 15px; background: #fafafa; transition: all 0.3s ease; }
+#login-form input:focus, #signup-form input:focus { border-color: #088178; background: #fff; box-shadow: 0 0 10px rgba(8, 129, 120, 0.15); outline: none; }
+#login-form button, #signup-form button { width: 100%; padding: 15px; font-size: 16px; border-radius: 6px; margin-top: 10px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+#login-form p, #signup-form p { font-size: 14px; color: #555; margin: 0; }
+#login-form p a, #signup-form p a { color: #088178; font-weight: 700; text-decoration: none; transition: 0.3s; }
+#login-form p a:hover, #signup-form p a:hover { color: #ef3636; text-decoration: underline; }
+
+/* =========================================
+   11. UI WIDGETS (TOAST & BADGE)
+   ========================================= */
+#toast {
+    visibility: hidden; min-width: 250px; background-color: #088178; color: #fff;
+    text-align: center; border-radius: 5px; padding: 16px; position: fixed;
+    z-index: 999; left: 50%; bottom: 30px; font-size: 16px; font-weight: 500;
+    transform: translateX(-50%); box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+}
+#toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+@keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+@keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+#navbar li a, #mobile a { position: relative; }
+.cart-badge {
+    background-color: #ef3636; color: #fff; font-size: 11px; font-weight: 700;
+    padding: 2px 6px; border-radius: 50%; position: absolute; top: -8px; right: -12px;
+}
+
+/* =========================================
+   12. MEDIA QUERIES (TABLETS: max-width 799px)
+   ========================================= */
+@media (max-width: 799px) {
+    .section-p1 { padding: 40px 40px; }
+    #navbar { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; position: fixed; top: 0; right: -300px; height: 100vh; width: 300px; background-color: #e3e6f3; box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1); padding: 80px 0 0 10px; transition: 0.3s ease-in-out; }
+    #navbar.active { right: 0px; }
+    #navbar li { margin-bottom: 25px; }
+    #mobile { display: flex; align-items: center; }
+    #mobile i { color: #1a1a1a; font-size: 24px; padding-left: 20px; cursor: pointer; }
+    #close { display: block; position: absolute; top: 30px; left: 30px; color: #222; font-size: 24px; }
+    #lg-bag { display: none; }
+    
+    #hero { height: 70vh; padding: 0 80px; background-position: top 30% right 30% !important; }
+    
+    #feature { justify-content: center; gap: 15px; }
+    .pro { width: 48%; min-width: auto; }
+    #banner { height: 20vh; }
+    #sm-banner .banner-box { min-width: 100%; height: 30vh; margin-bottom: 20px; }
+    #banner3 { padding: 0 40px; }
+    #banner3 .banner-box { width: 28%; min-width: auto; }
+    #newsletter .form { width: 70%; }
+    #prodetails { flex-direction: column; }
+    #prodetails .single-pro-image, #prodetails .single-pro-details { width: 100%; }
+    #blog { padding: 100px 40px 0 40px; }
+    .blog-box { flex-direction: column; align-items: flex-start; }
+    .blog-img, .blog-details { width: 100%; margin-right: 0; margin-bottom: 30px; }
+    #about-head { flex-direction: column; }
+    #about-head img, #about-head div, #about-app .video { width: 100%; }
+    #contact-details, #form-details { flex-direction: column; align-items: flex-start; }
+    #contact-details .details, #contact-details .map, #form-details form, #form-details .people { width: 100%; }
+    #cart-add, #checkout-page { flex-direction: column; }
+    #coupon, #subtotal, .billing-details, .order-summary { width: 100%; }
+    .cart-badge { top: -5px; right: -8px; }
+}
+
+/* =========================================
+   13. MEDIA QUERIES (PHONES: max-width 477px)
+   ========================================= */
+@media (max-width: 477px) {
+    .section-p1 { padding: 30px; }
+    #header { padding: 20px 30px; }
+    h1 { font-size: 38px; line-height: 45px; }
+    h2 { font-size: 32px; line-height: 40px; }
+   
+#hero {
+        padding: 0 30px;
+        background-position: 70% center !important;
+        height: 70vh;
+        margin-top: 0; /* Mobile par margin ki zaroorat nahi */
+    }
+    
+    #hero h1 { font-size: 35px; }
+    #hero h2 { font-size: 28px; }
+
+
+
+    #hero h4 { font-size: 14px; padding-bottom: 5px; }
+    #hero h2 { font-size: 25px; line-height: 35px; }
+    #hero h1 { font-size: 30px; line-height: 40px; }
+    #hero p { font-size: 12px; margin: 10px 0; }
+    #hero button { padding: 10px 40px 10px 40px; font-size: 13px; }
+
+    /* 🛠️ Mobile par Feature dabbon ko center karna */
+    #feature { 
+        justify-content: center !important; /* Dabbon ko darmiyan mein layega */
+        gap: 15px; /* Dabbon ke darmiyan barabar fasla rakhega */
+    }
+    
+    #feature .fa-box { 
+        width: 145px; /* Size thora adjust kiya taake choti screen par 2 dabbe fit aayen */
+        margin: 0 0 15px 0; 
+    }
+    .pro { width: 100%; }
+    #banner, #sm-banner .banner-box { height: 40vh; }
+    #banner3 { padding: 0 20px; }
+    #banner3 .banner-box { width: 100%; margin-bottom: 20px; }
+    #newsletter { padding: 40px 20px; }
+    #newsletter .form { width: 100%; }
+    footer .copyright { text-align: start; }
+    #blog { padding: 80px 20px 0 20px; }
+    .blog-box h1 { font-size: 50px; top: -30px; }
+
+    /* 🛠️ Login & Signup Form Mobile Fix */
+    #form-details:has(#login-form), 
+    #form-details:has(#signup-form) {
+        padding: 40px 15px; margin: 20px auto; width: 100%;
+    }
+    #login-form, #signup-form {
+        padding: 30px 20px; margin: 0 auto; width: 100%; max-width: 100%; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+    #login-form h2, #signup-form h2 { font-size: 26px; }
+    #login-form input, #signup-form input { padding: 12px 15px; font-size: 14px; }
+}
+
+/* =========================================
+   14. LARGE MONITORS FIX (min-width 1440px)
+   ========================================= */
+@media (min-width: 1440px) {
+    /* 1. Body ko dabbay se nikaalein taake background 100% screen par phail jaye */
+    body { 
+        max-width: 100% !important; 
+        margin: 0 !important; 
+        box-shadow: none !important;
+    }
+
+    /* 2. MAGIC TRICK: Saman ko 1300px ke andar center rakhne ke liye Auto-Padding */
+    /* Yeh trick left aur right par khud hisaab laga kar barabar khali jagah chhor degi */
+    #hero, .section-p1, #banner, #sm-banner, #banner3, #newsletter, footer {
+        padding-left: calc((100% - 1300px) / 2) !important;
+        padding-right: calc((100% - 1300px) / 2) !important;
+    }
+
+    /* Aapki baqi purani setttings */
+    #hero { 
+        height: 700px; 
+       /* 🛠️ YEH LINE MAGIC KAREGI: Image ko screen ke end par nahi, balkay text ke paas rok legi */
+        background-position: right calc((100% - 500px) / 2) top !important;
+        
+        /* 🛠️ MAGIC FIX: Yeh image ko over-zoom hone se rokega aur height lock kar dega */
+        background-size: auto 100% !important; 
+        
+        /* 🛠️ Ek hi image bar bar na aaye */
+        background-repeat: no-repeat !important;
+        
+        /* 🛠️ Jo left par khali jagah bachegi, wahan background jaisa light blue color aa jayega */
+        background-color: #e3e6f3 !important; 
+    }
+    #banner { height: 350px; }
+    #sm-banner { justify-content: center; gap: 30px; }
+    #sm-banner .banner-box { width: 48%; min-width: auto; height: 350px; background-size: cover; background-position: center; }
+    #banner3 { justify-content: space-between; }
+    #banner3 .banner-box { width: 31%; min-width: auto; height: 250px; background-size: cover; background-position: center; }
+}
+/* =========================================
+   15. PREMIUM SCROLL REVEAL ANIMATIONS
+   ========================================= */
+.reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-in-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }

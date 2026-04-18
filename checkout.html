@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Cara</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section id="header">
+        <a href="home.html"><img src="images/logo.png" class="logo" alt="Cara Logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+               <li><a href="signup.html">Login</a></li>
+
+                <li id="lg-bag">
+                    <a href="cart.html">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-badge">0</span>
+                    </a>
+                </li>
+
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-badge">0</span>
+            </a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="checkout-page" class="section-p1">
+        <div class="billing-details">
+            <h2>Billing Details</h2>
+            <form id="checkout-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Phone Number" required>
+                <input type="text" placeholder="Complete Shipping Address" required>
+                <input type="text" placeholder="City" required>
+            </form>
+        </div>
+
+        <div class="order-summary">
+            <h2>Your Order</h2>
+            <table width="100%">
+                <tr>
+                    <td><strong>Total Amount:</strong></td>
+                    <td id="checkout-total"><strong>$0</strong></td> 
+                </tr>
+                <tr>
+                    <td><strong>Shipping:</strong></td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Payment Method:</strong></td>
+                    <td>Cash on Delivery (COD)</td>
+                </tr>
+            </table>
+            <button class="normal" id="place-order-btn">Place Order</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="copyright">
+            <p>© 2026, Muhammad Abdullah Ali - Ecommerce Website</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
