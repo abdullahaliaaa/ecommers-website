@@ -1,7 +1,7 @@
 # 🛒 Professional E-Commerce Frontend Web Application
 
 <p align="center">
-  <img src="image/project-showcase.png.jpg" alt="Project Showcase" width="800">
+  <img src="project-showcase.jpg" alt="Project Showcase" width="800">
 </p>
 
 Ek modern, fully responsive aur feature-rich e-commerce platform jo user experience (UX) aur clean design ko dhyaan mein rakh kar banaya gaya hai. Is project mein shopping cart logic aur user authentication interfaces ko detail ke sath implement kiya gaya hai.
@@ -34,8 +34,8 @@ Is project ko clean aur scalable banaya gaya hai:
    git clone [https://github.com/your-username/ecommers-website.git](https://github.com/your-username/ecommers-website.git)
 
 
-   ![Project Preview](image/project-showcase.png.jpg)
+   ![Project Preview](project-showcase.jpg)
 
    # 🛒 E-Commerce Website Project
 
-![Muhammad Abdullah Ali's Project Showcase](image/project-showcase.png.jpg)
+![Muhammad Abdullah Ali's Project Showcase](project-showcase.jpg)
